@@ -6,7 +6,7 @@
 
 --Dont need to touch this
 g_savedata ={
-    -- {name,player_id,{pet_list}}
+    -- {player_id,{pet_list}}
     ["players"] = {},
 }
 
@@ -101,7 +101,6 @@ admin_commands = {
 }
 
 --# Required Items (Do not change unless updates add new stuff) #--
-player_pets = {} --for attaching pets to players
 
 pets = {
 	{"beagle",18},
@@ -310,10 +309,10 @@ end
 
 function onPlayerLeave(steam_id, name, peer_id, admin, auth)
 	announce(name .. " left the game")
-	for _,i in pairs(player_pets) do --if the player have spawned pets it removes them
+	for _,i in pairs(g_savedata["players"]) do --if the player have spawned pets it removes them
 		if i[1] == peer_id then
-			server.despawnObject(player_pets[_][2], true) --removes their pet
-			table.remove(g_savedata["players"], _)--removes the player
+			server.despawnObject(g_savedata["players"][_][2], true) --removes their pet
+			table.remove(g_savedata["players"], _)--removes the player from list
             break --to prevent any uneccesery searching
 		end
 	end
@@ -412,9 +411,9 @@ function onCustomCommand(full_message, user_peer_id, is_admin, is_auth, command,
 	if (command == "?companion") or (command == "?pet") then
 		if one then
 			if one == "remove" then
-				for _,i in ipairs(player_pets) do
-					if player_pets[_][1] == user_peer_id then
-						server.despawnObject(player_pets[_][2], true)
+				for _,i in ipairs(g_savedata["players"]) do
+					if g_savedata["players"][_][1] == user_peer_id then
+						server.despawnObject(g_savedata["players"][_][2], true)
 					end
 				end
 			else
@@ -423,12 +422,12 @@ function onCustomCommand(full_message, user_peer_id, is_admin, is_auth, command,
 					if one == i[1] then
 						object_id = server.spawnCreature(player_transform_matrix, i[2], 1)
 				
-						table.insert(player_pets,1,{user_peer_id,object_id})
+						table.insert(g_savedata["players"],1,{user_peer_id,object_id})
 						--checks for another pet for specific personel
-						for _,i in ipairs(player_pets) do
-							if player_pets[_][1] == user_peer_id then
-								if player_pets[_][2] ~= object_id then
-									server.despawnObject(player_pets[_][2], true)
+						for _,i in ipairs(g_savedata["players"]) do
+							if g_savedata["players"][_][1] == user_peer_id then
+								if g_savedata["players"][_][2] ~= object_id then
+									server.despawnObject(g_savedata["players"][_][2], true)
 								end
 							end
 						end
