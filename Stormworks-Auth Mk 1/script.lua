@@ -86,22 +86,18 @@ rules = {
 --Make sure you are included
 -- {name,steam_id}, --
 admins = {
-    {},
-    {}
+    {"admin1",0},
+    {"admin2",1}
 }
 
---Admin_commands
+--Admin_commands for this module
 admin_commands = {
 	"?warn [player_id] [Reason]",
 	"?kick [player_id]",
 	"?ban [player_id]",
 	"?announce [announcment]",
 	"?kill [player_id] - Kills the player",
-	"?smite [player_id] - Kills the player with kaboom",
-    --Vehicle Manager
-    "?setpvp [player_id] [true/false]" ,
-    "?remove [Vehicle_id]",
-    "?vehlist - Displays the players name, ID and vehicles spawned"
+	"?smite [player_id] - Kills the player with kaboom"
 }
 
 --# Required Items (Do not change unless updates add new stuff) #--
@@ -380,6 +376,7 @@ function onCustomCommand(full_message, user_peer_id, is_admin, is_auth, command,
 	
     --gets your staff and posts it to you. how fancy!
 	if (command == "?staff") then
+        local staffT = ""
 		for _,i in pairs(admins) do
 			staffT = staffT .. i[1] .. "\n"
 		end
