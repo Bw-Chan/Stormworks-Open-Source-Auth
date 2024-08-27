@@ -63,4 +63,4 @@ Then it is pretty much already there for you :P
 ![image](https://github.com/user-attachments/assets/ffb21fa9-1c03-427a-8d84-8be4627199e2)
 
 And then we have these commands for your admins!
-Change this depedning on what admin commands you decide to add or remove.
+Change this depending on what admin commands you decide to add or remove.
