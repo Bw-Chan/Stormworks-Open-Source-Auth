@@ -48,11 +48,14 @@ For instance a message is displayed for your discord link as specified in the in
 Rules can be completely re-done if you do not agree or are unhappy with them or leave em if you are lazy and cannot be bothered changing it lol.
 
 As for your admins,
+
 The format goes like this:
+`
 admins ={
   {"admin1",steam_id},
   {"admin2",steam_id}
 }
+`
 As for getting the steam_id go to [Steamid.io](https://steamid.io) and put their username in OR
 if their steam profile url looks like this: ![image](https://github.com/user-attachments/assets/6af2e3d4-236e-44d0-9b00-82c31e7c104d)
 Then it is pretty much already there for you :P
