@@ -13,4 +13,4 @@ This handles basic functions like:
 
 ![image](https://github.com/user-attachments/assets/a27edfd1-5c99-4ae9-9ae7-1f7f43b3209b)
 
-This is your the start of your config and you can replace all that however you like.
+This is your the start of your config and you can replace all of that however you like.
