@@ -44,7 +44,7 @@ You can change these depending on what commands you add/change (make sure you ke
 ![image](https://github.com/user-attachments/assets/64995e1d-cea9-4cf0-af9e-72c84d09c122)
 
 These are the second to last parts you can change.
-The Announcements are displayed every interval you specified at the start of the script, You can change this however you like to display any information you feel the user might need.
+The Announcements are displayed every interval that you specified at the start of the script, You can change this however you like to display any information you feel the user might need.
 For instance a message is displayed for your discord link as specified in the info = {} list above.
 
 Rules can be completely re-done if you do not agree or are unhappy with them or leave em if you are lazy and cannot be bothered changing it lol.
