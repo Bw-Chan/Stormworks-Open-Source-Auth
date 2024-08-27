@@ -4,7 +4,7 @@ This is the main part of your Server! yay
 
 If you have any issues feel free to contact me, discord: bwchan (I will also keep an eye on the issues stuff but I might be a bit slower to do so since I will probably be doing other things)
 
-Please credit me if you can, if you do not want to then well me big sad.
+> Please credit me if you can, if you do not want to then well me big sad.
 
 This handles basic functions like:
 - Announcments
