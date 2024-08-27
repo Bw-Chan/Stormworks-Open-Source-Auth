@@ -38,7 +38,7 @@ It seems self explanitory so I wont explain it here.
 
 ![image](https://github.com/user-attachments/assets/7b74f4fc-a0af-4ce8-be8f-0a8e8d0ccc8c)
 
-These are your commands (including the vehicle manager I have made and the extras inculded with this script)
+These are your commands (including the vehicle manager I have made (not included here) and the extras inculded with this script)
 You can change these depending on what commands you add/change (make sure you keep this up to date it is quite important... duh!).
 
 ![image](https://github.com/user-attachments/assets/64995e1d-cea9-4cf0-af9e-72c84d09c122)
