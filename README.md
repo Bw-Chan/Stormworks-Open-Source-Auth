@@ -33,7 +33,7 @@ Then you are done! (you will need to do this for every addon/mission you add)
 ### Configuring your script!
 ![image](https://github.com/user-attachments/assets/a27edfd1-5c99-4ae9-9ae7-1f7f43b3209b)
 
-This is your the start of your config and you can replace all of that however you like.
+This is the start of your config and you can replace all of that however you like.
 It seems self explanitory so I wont explain it here.
 
 ![image](https://github.com/user-attachments/assets/7b74f4fc-a0af-4ce8-be8f-0a8e8d0ccc8c)
