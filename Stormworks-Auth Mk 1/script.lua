@@ -97,7 +97,11 @@ admin_commands = {
 	"?ban [player_id]",
 	"?announce [announcment]",
 	"?kill [player_id] - Kills the player",
-	"?smite [player_id] - Kills the player with kaboom"
+	"?smite [player_id] - Kills the player with kaboom",
+	--VehicleManager
+	"?setpvp [player_id] [true/false]" ,
+	"?remove [Vehicle_id]",
+	"?vehlist - Displays the players name, ID and vehicles spawned"
 }
 
 --# Required Items (Do not change unless updates add new stuff) #--
