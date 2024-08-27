@@ -24,7 +24,7 @@ Then in navigate to your server_config.xml (usually in C:/users/[your_name]/appd
 
 ![image](https://github.com/user-attachments/assets/4a31c2e5-bffc-4b07-92b5-11330e35728f)
 
-and specify in the playlist: <path path="rom/data/[missions or the folder you create]/[stormworks addon name]"/>
+and specify in the playlist: `<path path="rom/data/[missions or the folder you create]/[stormworks addon name]"/>`
 Then you are done! (you will need to do this for every addon/mission you add)
 
 ### Configuring your script!
