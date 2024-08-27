@@ -16,9 +16,16 @@ To add the script to your server take this folder:
 
 ![image](https://github.com/user-attachments/assets/c4f707c2-61f9-4d92-8b05-bc294dc0359c)
 
-and navigate to your ..\Steam\steamapps\common\Stormworks
+and navigate to your ../Steam/steamapps/common/Stormworks
 
-go into \rom\data and place that folder into missions (or create your own folder)
+go into /rom/data and place that folder into missions (or create your own folder)
+
+Then in navigate to your server_config.xml (usually in C:/users/[your_name]/appdata/roaming/stormworks
+
+![image](https://github.com/user-attachments/assets/4a31c2e5-bffc-4b07-92b5-11330e35728f)
+
+and specify in the playlist: <path path="rom/data/[missions or the folder you create]/[stormworks addon name]"/>
+Then you are done! (you will need to do this for every addon/mission you add)
 
 ### Configuring your script!
 ![image](https://github.com/user-attachments/assets/a27edfd1-5c99-4ae9-9ae7-1f7f43b3209b)
