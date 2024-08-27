@@ -38,3 +38,8 @@ admins ={
 As for getting the steam_id go to [Steamid.io](https://steamid.io) and put their username in OR
 if their steam profile url looks like this: ![image](https://github.com/user-attachments/assets/6af2e3d4-236e-44d0-9b00-82c31e7c104d)
 Then it is pretty much already there for you :P
+
+![image](https://github.com/user-attachments/assets/ffb21fa9-1c03-427a-8d84-8be4627199e2)
+
+And then we have these commands for your admins!
+Change this depedning on what admin commands you decide to add or remove.
