@@ -296,6 +296,8 @@ function onPlayerJoin(steam_id, name, peer_id, is_admin, auth)
     for _,i in pairs(admins) do
         if steam_id ~= i[2] and is_admin then --checks if they arent in the whitelist and if they are admin removes unwanted admins
             server.removeAdmin(peer_id)
+        elseif steam_id == i[2] and not is_admin then
+            server.addAdmin(peer_id) --automatically adds admins you specified just incase you forgot to configure server_config.xml
         end
     end
 
