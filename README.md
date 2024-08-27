@@ -1,4 +1,4 @@
-# Open-Source-Auth
+# Stormworks-Open-Source-Auth
 
 This is the main part of your Server! yay
 
