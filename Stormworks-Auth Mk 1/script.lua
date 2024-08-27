@@ -90,14 +90,18 @@ admins = {
     {}
 }
 
---Admin_commands for this module
+--Admin_commands
 admin_commands = {
 	"?warn [player_id] [Reason]",
 	"?kick [player_id]",
 	"?ban [player_id]",
 	"?announce [announcment]",
 	"?kill [player_id] - Kills the player",
-	"?smite [player_id] - Kills the player with kaboom"
+	"?smite [player_id] - Kills the player with kaboom",
+    --Vehicle Manager
+    "?setpvp [player_id] [true/false]" ,
+    "?remove [Vehicle_id]",
+    "?vehlist - Displays the players name, ID and vehicles spawned"
 }
 
 --# Required Items (Do not change unless updates add new stuff) #--
