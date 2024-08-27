@@ -45,7 +45,7 @@ These are the second to last parts you can change.
 The Announcements are displayed every interval you specified at the start of the script, You can change this however you like to display any information you feel the user might need.
 For instance a message is displayed for your discord link as specified in the info = {} list above.
 
-Rules can be completely re-done if you do not agree or are unhappy with them or leave em if you are lazy and connot be bothered changing it lol.
+Rules can be completely re-done if you do not agree or are unhappy with them or leave em if you are lazy and cannot be bothered changing it lol.
 
 As for your admins,
 The format goes like this:
