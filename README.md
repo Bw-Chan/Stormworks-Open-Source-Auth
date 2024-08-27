@@ -12,6 +12,12 @@ This handles basic functions like:
 
 ## Lets get Started!
 
+To add the script to your server take this folder:
+![image](https://github.com/user-attachments/assets/c4f707c2-61f9-4d92-8b05-bc294dc0359c)
+and navigate to your ..\Steam\steamapps\common\Stormworks
+go into \rom\data and place that folder into missions (or create your own folder)
+
+### Configuring your script!
 ![image](https://github.com/user-attachments/assets/a27edfd1-5c99-4ae9-9ae7-1f7f43b3209b)
 
 This is your the start of your config and you can replace all of that however you like.
