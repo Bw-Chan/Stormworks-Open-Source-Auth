@@ -6,6 +6,8 @@ If you have any issues feel free to contact me, discord: bwchan (I will also kee
 
 > Please credit me if you can, if you do not want to then well me big sad.
 
+Note: Using Visual Studio Code will help a ton with reading these things and writing but it will slow down testing a little.
+
 This handles basic functions like:
 - Announcments
 - Help <-- might need changes depending on what commands you have in other scripts or this one
