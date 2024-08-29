@@ -4,9 +4,13 @@
 -- Bw-Chan <-- keep if you want
 -----------------
 
+-- UI/Popup LIST
+-- ?auth UI_ID 0
+-- VehicleManager UI_ID 1
+
 --Dont need to touch this
 g_savedata ={
-    -- {name,player_id,{pet_list}}
+    -- {player_id,{pet_list}}
     ["players"] = {},
 }
 
@@ -71,7 +75,7 @@ rules = {
 	"1) Please use common sense and stop doing a certain action when told to.",
 	"2) Do NOT at any time TP (teleport)/No-clip fight as it is unfair for other players who wish to fight.",
 	"3) Vehicle that cause warning messages aswell as large or vehicles with many moving parts are Restricted",
-	"4) No Explicit Roleplay, This means No Suicide, sexual, terrotistic acts.",
+	"4) No Explicit Roleplay, This means No Suicide, sexual, terrortistic acts.",
 	"5) PvP in Hangars or spawn areas are not allowed, Please move",
 	"6) Please Refrain from using Flare Bombs, EMPs or anything to annoy people.",
 	"7) Do NOT at all try break the server in any way (this will lead to a perminent ban or even worse IP ban",
@@ -86,8 +90,8 @@ rules = {
 --Make sure you are included
 -- {name,steam_id}, --
 admins = {
-    {},
-    {}
+    {"admin1",0},
+    {"admin2",1}
 }
 
 --Admin_commands for this module
@@ -105,7 +109,6 @@ admin_commands = {
 }
 
 --# Required Items (Do not change unless updates add new stuff) #--
-player_pets = {} --for attaching pets to players
 
 pets = {
 	{"beagle",18},
@@ -307,17 +310,17 @@ function onPlayerJoin(steam_id, name, peer_id, is_admin, auth)
 
 	if not is_admin then
         --Change the popup for any different command for auth
-		server.setPopupScreen(peer_id, 2, name, true, server_type.."\n Please Read Rules! ?auth for auth", 0, 0)
+		server.setPopupScreen(peer_id, 0, name, true, server_type.."\n Please Read Rules! ?auth for auth", 0, 0)
 	end
     table.insert(g_savedata["players"],1,{name,peer_id,{}})
 end
 
 function onPlayerLeave(steam_id, name, peer_id, admin, auth)
 	announce(name .. " left the game")
-	for _,i in pairs(player_pets) do --if the player have spawned pets it removes them
+	for _,i in pairs(g_savedata["players"]) do --if the player have spawned pets it removes them
 		if i[1] == peer_id then
-			server.despawnObject(player_pets[_][2], true) --removes their pet
-			table.remove(g_savedata["players"], _)--removes the player
+			server.despawnObject(g_savedata["players"][_][2], true) --removes their pet
+			table.remove(g_savedata["players"], _)--removes the player from list
             break --to prevent any uneccesery searching
 		end
 	end
@@ -341,7 +344,7 @@ function onCustomCommand(full_message, user_peer_id, is_admin, is_auth, command,
     --change this for your ?noworkshop or such
 	if (command== "?auth") then 
 		server.addAuth(user_peer_id)
-		server.removePopup(user_peer_id, user_peer_id+2)
+		server.removePopup(user_peer_id, 0)
 	end
 	
     --Displays server info
@@ -380,6 +383,7 @@ function onCustomCommand(full_message, user_peer_id, is_admin, is_auth, command,
 	
     --gets your staff and posts it to you. how fancy!
 	if (command == "?staff") then
+        local staffT = ""
 		for _,i in pairs(admins) do
 			staffT = staffT .. i[1] .. "\n"
 		end
@@ -415,9 +419,9 @@ function onCustomCommand(full_message, user_peer_id, is_admin, is_auth, command,
 	if (command == "?companion") or (command == "?pet") then
 		if one then
 			if one == "remove" then
-				for _,i in ipairs(player_pets) do
-					if player_pets[_][1] == user_peer_id then
-						server.despawnObject(player_pets[_][2], true)
+				for _,i in ipairs(g_savedata["players"]) do
+					if g_savedata["players"][_][1] == user_peer_id then
+						server.despawnObject(g_savedata["players"][_][2], true)
 					end
 				end
 			else
@@ -426,12 +430,12 @@ function onCustomCommand(full_message, user_peer_id, is_admin, is_auth, command,
 					if one == i[1] then
 						object_id = server.spawnCreature(player_transform_matrix, i[2], 1)
 				
-						table.insert(player_pets,1,{user_peer_id,object_id})
+						table.insert(g_savedata["players"],1,{user_peer_id,object_id})
 						--checks for another pet for specific personel
-						for _,i in ipairs(player_pets) do
-							if player_pets[_][1] == user_peer_id then
-								if player_pets[_][2] ~= object_id then
-									server.despawnObject(player_pets[_][2], true)
+						for _,i in ipairs(g_savedata["players"]) do
+							if g_savedata["players"][_][1] == user_peer_id then
+								if g_savedata["players"][_][2] ~= object_id then
+									server.despawnObject(g_savedata["players"][_][2], true)
 								end
 							end
 						end
