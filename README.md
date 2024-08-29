@@ -43,7 +43,7 @@ It seems self explanitory so I wont explain it here.
 These are your commands (including the vehicle manager I have made (not included here) and the extras inculded with this script)
 You can change these depending on what commands you add/change (make sure you keep this up to date it is quite important... duh!).
 
-![image](https://github.com/user-attachments/assets/524492ff-ffca-469d-9b6f-f11406e55288)
+![image](https://github.com/user-attachments/assets/a84dfea4-9b17-49a3-9b40-e5797493a7fd)
 
 These are the second to last parts you can change.
 The Announcements are displayed every interval that you specified at the start of the script, You can change this however you like to display any information you feel the user might need.
