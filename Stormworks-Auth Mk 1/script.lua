@@ -74,14 +74,14 @@ announcement_list ={
 rules = {
 	"1) Please use common sense and stop doing a certain action when told to.",
 	"2) Do NOT at any time TP (teleport)/No-clip fight as it is unfair for other players who wish to fight.",
-	"3) Vehicle that cause warning messages aswell as large or vehicles with many moving parts are Restricted",
+	"3) Vehicles that cause warning messages aswell as large or vehicles with many moving parts are Restricted.",
 	"4) No Explicit Roleplay, This means No Suicide, sexual, terrortistic acts.",
-	"5) PvP in Hangars or spawn areas are not allowed, Please move",
+	"5) PvP in Hangars or spawn areas are not allowed, Please move.",
 	"6) Please Refrain from using Flare Bombs, EMPs or anything to annoy people.",
-	"7) Do NOT at all try break the server in any way (this will lead to a perminent ban or even worse IP ban",
+	"7) Do NOT at all try break the server in any way.",
 	"8) Please do not shoot planes/helicopters that are on the ground.",
-	"9) Ensure you are given permission by the other player to PvP",
-	"10) Admins have final say",
+	"9) Ensure you are given permission by the other player to PvP.",
+	"10) Admins have final say.",
 	"",
 	"And dont forget to have fun!"
 }
