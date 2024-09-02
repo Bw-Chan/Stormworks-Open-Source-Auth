@@ -292,7 +292,7 @@ tools = {
 --simplifies the announcement call down
 function announce(message,user_peer_id)
     user_peer_id = user_peer_id or -1
-    server.announce(info["Server_Name"],message,(user_peer_id))
+    server.announce(announcement_name,message,(user_peer_id))
 end
 
 --# Functions #--
