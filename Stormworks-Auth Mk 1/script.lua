@@ -310,7 +310,7 @@ function onPlayerJoin(steam_id, name, peer_id, is_admin, auth)
 
 	if not is_admin then
         --Change the popup for any different command for auth
-		server.setPopupScreen(peer_id, 0, name, true, g_savedata["server_Type"].."\n Please Read Rules! ?auth for auth", 0, 0)
+		server.setPopupScreen(peer_id, 0, name, true, info["server_Type"].."\n Please Read Rules! ?auth for auth", 0, 0)
 	end
     table.insert(g_savedata["players"],1,{name,peer_id,{}})
 end
