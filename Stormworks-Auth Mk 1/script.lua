@@ -24,7 +24,7 @@ info = {
     ["Server_Type"] = "[No Workshop]",  --or you could do [Workshop] (or anything tbh)
     ["Owner"] = "Bw-Chan",
     ["Version"] = "Auth mk1", --You dont really need to change this but you can if you wish to make edits
-    ["Link"] = "discord.gg/[your server]"
+    ["Link"] = "discord.gg/jQfBZFwzYP"
 }
 
 commands = {
@@ -46,7 +46,7 @@ commands = {
         "===Vehicle Management (pg 2/3)===",
     "?c [vehicle_id] - Clear up your slected vehicle, if left empty will despawn all of them",
 	"?r [vehicle_id] - Repairs your selected vehicle, if left empty will repair all of them",
-	"?tpveh [vehicle_id] - Teleports your vehicle to you",
+	"?tpv [vehicle_id] - Teleports your vehicle to you",
 	"?as - Toggles your Anti_steal for all vehicles",
 	"?pvp - Toggles invulnerability for all vehicles",
 	"?ui - Toggles that pesky UI",
@@ -90,8 +90,10 @@ rules = {
 --Make sure you are included
 -- {name,steam_id}, --
 admins = {
-    {"admin1",0},
-    {"admin2",1}
+    {"Bw-Chan",76561198112300882},
+    {"Smiffy",76561198057915010},
+	{"Cap'n Leonard",76561198993592374},
+	{"Thomas",76561198889659473}
 }
 
 --Admin_commands for this module
@@ -112,23 +114,23 @@ admin_commands = {
 
 pets = {
 	{"beagle",18},
-	{"border collie",19},
+	{"border_collie",19},
 	{"boxer",20},
 	{"corgi",21},
 	{"dachschund",22},
 	{"dalmatian",23},
 	{"doberman",24},
-	{"german shepherd",25},
+	{"german_shepherd",25},
 	{"grayhound",26},
-	{"jack russel",27},
+	{"jack_russel",27},
 	{"labrador",28},
 	{"newfoundland",29},
 	{"pug",30},
 	{"shiba",31},
-	{"siberian husky",32},
-	{"st bernard",33},
+	{"siberian_husky",32},
+	{"st_bernard",33},
 	{"vizdla",34},
-	{"yorkshire terrier",35},
+	{"yorkshire_terrier",35},
 }
 tools = {
 	--{tool_ID, Name, Int, Float, Slot_Number}--
@@ -291,7 +293,11 @@ tools = {
 --# Simplifications #--
 --simplifies the announcement call down
 function announce(message,user_peer_id)
-    user_peer_id = user_peer_id or -1
+	if user_peer_id then
+    	user_peer_id = user_peer_id
+	else
+		user_peer_id = -1
+	end
     server.announce(announcement_name,message,(user_peer_id))
 end
 
@@ -301,18 +307,32 @@ function onPlayerJoin(steam_id, name, peer_id, is_admin, auth)
 	announce("Welcome ".. name) --Change this for a different welcome message
 	server.removeAuth(peer_id) --removes auth so they have to rid of the popup
     for _,i in pairs(admins) do
-        if steam_id ~= i[2] and is_admin then --checks if they arent in the whitelist and if they are admin removes unwanted admins
-            server.removeAdmin(peer_id)
-        elseif steam_id == i[2] and not is_admin then
-            server.addAdmin(peer_id) --automatically adds admins you specified just incase you forgot to configure server_config.xml
-        end
+        if (steam_id == i[2]) or is_admin then
+			server.addAdmin(peer_id)
+			break
+		end
     end
 
+	--remove admin and set pop up
 	if not is_admin then
         --Change the popup for any different command for auth
 		server.setPopupScreen(peer_id, 0, name, true, info["Server_Type"].."\n Please Read Rules! ?auth for auth", 0, 0)
 	end
+	--add user to g_savedata
     table.insert(g_savedata["players"],1,{name,peer_id,{}})
+end
+
+function onPlayerRespawn(peer_id)
+	peer_object_id, is_success = server.getPlayerCharacterID(peer_id)
+	items ={
+		tools[23],
+		tools[14]
+	}
+	local count = 2
+	for _,item in pairs(items) do
+		server.setCharacterItem(peer_object_id, count, item[1], false, item[3], item[4])
+		count = count +1
+	end
 end
 
 function onPlayerLeave(steam_id, name, peer_id, admin, auth)
@@ -429,17 +449,16 @@ function onCustomCommand(full_message, user_peer_id, is_admin, is_auth, command,
 				for _,i in pairs(pets) do
 					if one == i[1] then
 						object_id = server.spawnCreature(player_transform_matrix, i[2], 1)
-				
 						table.insert(g_savedata["players"],1,{user_peer_id,object_id})
-						--checks for another pet for specific personel
-						for _,i in ipairs(g_savedata["players"]) do
-							if g_savedata["players"][_][1] == user_peer_id then
-								if g_savedata["players"][_][2] ~= object_id then
-									server.despawnObject(g_savedata["players"][_][2], true)
+						--checks for another pet for peer and despawns
+						for _,a in pairs(g_savedata["players"]) do
+							if a[1] == user_peer_id then
+								if a[2] ~= object_id then
+									server.despawnObject(i[2], true)
 								end
 							end
 						end
-						break
+						break --exit once finished
 					end
 				end
 			end
