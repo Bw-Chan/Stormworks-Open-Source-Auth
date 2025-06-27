@@ -153,7 +153,7 @@ tools = {
 	{7,"cable",0,0,1},
 	{8,"compass",0,0,2},
 	{9,"defibrillator",4,0,1},
-	{10,"fire_extinguisher",0,100,1},
+	{10,"fire_extinguisher",0,9,1},
 	{11,"first_aid",4,0,2},
 	{12,"flare",4,0,2},
 	{13,"flaregun",1,0,2},
@@ -414,7 +414,7 @@ function onCustomCommand(full_message, user_peer_id, is_admin, is_auth, command,
 	if (command == "?tool" or command == "?t" or command == "?tools") then
 		if one then
 			for _,o in pairs(tools) do
-				if tonumber(one) == o[1] then
+				if tonumber(one) == o[1] or tostring(one) == o[2] then
 					if two then
 						Slot = two
 					else
@@ -422,7 +422,8 @@ function onCustomCommand(full_message, user_peer_id, is_admin, is_auth, command,
 					end
 					server.announce("[Server]","Tool Spawned",(user_peer_id))
 					peer_object_id, is_success = server.getPlayerCharacterID(user_peer_id)
-					server.setCharacterItem(peer_object_id, Slot, one, false, o[3], o[4])
+					item = o[1]
+					server.setCharacterItem(peer_object_id, Slot, item, false, o[3], o[4])
 					break
 				end
 			end
